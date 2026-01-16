@@ -9,7 +9,7 @@
 - **Dataset:** Online Retail UCI (541.909 giao dịch, 2010-2011) 
 
 ## 🎯 Mục tiêu
-> Xây dựng pipeline **end-to-end** từ Association Rules → Customer Features → **Clustering chất lượng cao (Silhouette=0.975)** → **Business Insights actionable**. 
+> Xây dựng pipeline **end-to-end** từ Association Rules → Customer Features → **Clustering chất lượng cao (Silhouette=0.458)** → **Business Insights actionable**
 
 ## 💡 Ý tưởng & Feynman Style
 **Feynman Explanation** (dễ hiểu nhất):
@@ -53,8 +53,8 @@
 RFM + Top 200 Association Rules - C0 (xanh) vs C1 (VIP đỏ)
 
 **Hình 2: Silhouette Analysis**  
-![Silhouette K=2 Optimal](notebooks/images/silhouette_analysis_k2.png)  
-K=2: **0.975** (optimal)  
+![Silhouette Fixed](notebooks/images/silhouette_analysis_fixed.png)  
+*K=2: 0.458 ⭐ Optimal | Table đầy đủ scores*   
 
 ## 🎯 Business Insights
 
