@@ -122,28 +122,50 @@ pm.execute_notebook(
 
 
 # run_clustering_from_rules.py
+# Cấu hình 1: Baseline - rule-only, binary, Top-K=50
 pm.execute_notebook(
     "notebooks/clustering_from_rules.ipynb",
-    "notebooks/runs/clustering_from_rules_run.ipynb",
+    "notebooks/runs/clustering_ruleonly_50_run.ipynb",
     parameters=dict(
         CLEANED_DATA_PATH="data/processed/cleaned_uk_data.csv",
         RULES_INPUT_PATH="data/processed/rules_apriori_filtered.csv",
-
-        TOP_K_RULES=200,
+        TOP_K_RULES=50,
         SORT_RULES_BY="lift",
-        WEIGHTING="lift",
+        WEIGHTING="none",      # binary
         MIN_ANTECEDENT_LEN=1,
-        USE_RFM=True,
-        RFM_SCALE=True,
+        USE_RFM=False,         # rule-only
+        RFM_SCALE=False,
         RULE_SCALE=False,
-
         K_MIN=2,
         K_MAX=10,
         N_CLUSTERS=None,
         RANDOM_STATE=42,
+        OUTPUT_CLUSTER_PATH="data/processed/customer_clusters_ruleonly_50.csv",
+        PROJECTION_METHOD="pca",
+        PLOT_2D=True,
+    ),
+    kernel_name="python3",
+)
 
-        OUTPUT_CLUSTER_PATH="data/processed/customer_clusters_from_rules.csv",
-
+# Cấu hình 2: Nâng cao - rule+RFM, weighted lift, Top-K=200
+pm.execute_notebook(
+    "notebooks/clustering_from_rules.ipynb",
+    "notebooks/runs/clustering_ruleRFM_200_run.ipynb",
+    parameters=dict(
+        CLEANED_DATA_PATH="data/processed/cleaned_uk_data.csv",
+        RULES_INPUT_PATH="data/processed/rules_apriori_filtered.csv",
+        TOP_K_RULES=200,
+        SORT_RULES_BY="lift",
+        WEIGHTING="lift",      # weighted
+        MIN_ANTECEDENT_LEN=1,
+        USE_RFM=True,          # rule+RFM
+        RFM_SCALE=True,
+        RULE_SCALE=False,
+        K_MIN=2,
+        K_MAX=10,
+        N_CLUSTERS=None,
+        RANDOM_STATE=42,
+        OUTPUT_CLUSTER_PATH="data/processed/customer_clusters_ruleRFM_200.csv",
         PROJECTION_METHOD="pca",
         PLOT_2D=True,
     ),
