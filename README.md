@@ -52,7 +52,7 @@
 ![PCA Clusters Pro](pca_clusters_pro.png)
 RFM + Top 200 Association Rules - C0 (xanh) vs C1 (VIP đỏ)
 
-**Hình 3: Silhouette Analysis**  
+**Hình 2: Silhouette Analysis**  
 ![Silhouette K=2 Optimal](notebooks/images/silhouette_analysis_k2.png)  
 K=2: **0.975** (optimal)  
 
@@ -87,6 +87,7 @@ papermill notebooks/clustering_ruleRFM_200_run.ipynb \
 ```
 
 ## Cấu trúc file
+```
 shop_cluster_nhom_9/
 ├── README.md ⭐
 ├── images/ ⭐
@@ -97,3 +98,4 @@ shop_cluster_nhom_9/
 │   └── customer_clusters_ruleRFM_200.csv ⭐
 └── notebooks/
     └── clustering_ruleRFM_200_run.ipynb ⭐
+```
